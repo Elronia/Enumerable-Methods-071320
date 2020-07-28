@@ -63,6 +63,7 @@ zoos = {
 # Central Park Zoo has just received 4 wolves. Alter the `zoos` information to reflect this new change:
 # Put this hash: { species: "Wolf", count: 4 } in the array under the `:animals` key in Central Park Zoo
 zoos["Central Park Zoo"][:animals][2] = {wolves: 4}
+"Change Alex made and saved"
 
 
 # The 2 penguins in the Bronx Zoo just had a baby. Alter the `zoos` information to reflect this new change:
