@@ -69,16 +69,23 @@ zoos["Central Park Zoo"][:animals][2] = {wolves: 4}
 # The 2 penguins in the Bronx Zoo just had a baby. Alter the `zoos` information to reflect this new change:
 # Increment the number for the `:count` key in the "Penguin" hash in the Bronx Zoo array by 1. 
 # You can assume that the animal at index 0 will always be the "Penguin" hash.
-zoos["Bronx Zoo"][:animals][0][:count] = 3
-binding.pry
-
+zoos["Bronx Zoo"][:animals][0][:count] += 1
 
 
 # Each of the zoos in the city just received 2 pandas. Alter the `zoos` information to reflect this new change:
 # In the array of animals under each Zoo, shovel this hash: { species: "Panda", count: 2 }
-
-
-
+animals = { species: "Panda", count: 2 }
+def add_pandas(animals)
+  counter = 0
+  while counter < zoos.length
+   zoos[counter][:animals].each do |species, count|
+     zoos[counter][:animals] << { species: "Panda", count: 2 }
+    counter += 1
+   end
+  end
+  binding.pry
+  zoos
+end
 
 
 # Return the number of Tigers at the Bronx Zoo.
