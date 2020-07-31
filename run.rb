@@ -62,7 +62,7 @@ zoos = {
 
 # Central Park Zoo has just received 4 wolves. Alter the `zoos` information to reflect this new change:
 # Put this hash: { species: "Wolf", count: 4 } in the array under the `:animals` key in Central Park Zoo
-zoos["Central Park Zoo"][:animals][2] = {wolves: 4}
+zoos["Central Park Zoo"][:animals][2] = { species: "Wolf", count: 4 }
 "Change Alex made and saved"
 
 # The 2 penguins in the Bronx Zoo just had a baby. Alter the `zoos` information to reflect this new change:
@@ -90,7 +90,7 @@ tiger_hash[:count]
 # Return the price associated with the `name_of_zoo` variable.
 
 # No matter which 1 of the 3 variable assignment you choose, your code should work:
- name_of_zoo = "Bronx Zoo" #=> returns 25
+name_of_zoo = "Bronx Zoo" #=> returns 25
 # name_of_zoo = "Central Park Zoo" => returns 18
 # name_of_zoo = "Staten Island Zoo" => returns 10
 
@@ -137,7 +137,13 @@ end
 # Return an array of 3 numbers, each describing the total sum of the number of animals in a zoo.
 # The return value should be an array of 3 numbers: [20, 14, 17]
 # Consider which higher-level enumerable method(s) you'd use here.
-
+total_numbers = zoos.map do |name, zoo_hash|
+    total_animal_counts = zoo_hash[:animals].map do |animal_hash|
+        animal_hash[:count]
+        
+    end
+    total_animal_counts.sum
+end
 
 
 
@@ -145,8 +151,12 @@ end
 # Find the zoo with the highest count of any species in it. (Butterflies with the 12 count is the highest)
 # The return value should be an array with two elements: ["Bronx Zoo", { location: "Bronx", ... }]
 # Consider which higher-level enumerable method(s) you'd use here.
-
-
-
+zoos_with_highest_species = zoos.max_by do |name, zoo_hash|
+    highest_animal_per_zoo = zoo_hash[:animals].max_by do |animal_hash|
+        animal_hash[:count]
+    end
+    highest_animal_per_zoo[:count]
+end
 
 binding.pry
+0
